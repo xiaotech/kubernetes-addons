@@ -1,0 +1,329 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    annotations:
+      cloud.weave.works/launcher-info: |-
+        {
+          "original-request": {
+            "url": "/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==",
+            "date": "Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)"
+          },
+          "email-address": "support@weave.works"
+        }
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"ServiceAccount","metadata":{"annotations":{"cloud.weave.works/launcher-info":"{\n  \"original-request\": {\n    \"url\": \"/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==\",\n    \"date\": \"Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)\"\n  },\n  \"email-address\": \"support@weave.works\"\n}"},"labels":{"name":"weave-net"},"name":"weave-net","namespace":"kube-system"}}
+    creationTimestamp: "2018-12-19T07:18:28Z"
+    labels:
+      name: weave-net
+    name: weave-net
+    namespace: kube-system
+    resourceVersion: "410"
+    selfLink: /api/v1/namespaces/kube-system/serviceaccounts/weave-net
+    uid: 4810da06-035e-11e9-b555-5254003ceebc
+  secrets:
+  - name: weave-net-token-pp44s
+- apiVersion: rbac.authorization.k8s.io/v1beta1
+  kind: ClusterRole
+  metadata:
+    annotations:
+      cloud.weave.works/launcher-info: |-
+        {
+          "original-request": {
+            "url": "/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==",
+            "date": "Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)"
+          },
+          "email-address": "support@weave.works"
+        }
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1beta1","kind":"ClusterRole","metadata":{"annotations":{"cloud.weave.works/launcher-info":"{\n  \"original-request\": {\n    \"url\": \"/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==\",\n    \"date\": \"Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)\"\n  },\n  \"email-address\": \"support@weave.works\"\n}"},"labels":{"name":"weave-net"},"name":"weave-net"},"rules":[{"apiGroups":[""],"resources":["pods","namespaces","nodes"],"verbs":["get","list","watch"]},{"apiGroups":["networking.k8s.io"],"resources":["networkpolicies"],"verbs":["get","list","watch"]},{"apiGroups":[""],"resources":["nodes/status"],"verbs":["patch","update"]}]}
+    creationTimestamp: "2018-12-19T07:18:28Z"
+    labels:
+      name: weave-net
+    name: weave-net
+    resourceVersion: "407"
+    selfLink: /apis/rbac.authorization.k8s.io/v1beta1/clusterroles/weave-net
+    uid: 48126f6c-035e-11e9-b555-5254003ceebc
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - pods
+    - namespaces
+    - nodes
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - networkpolicies
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resources:
+    - nodes/status
+    verbs:
+    - patch
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1beta1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      cloud.weave.works/launcher-info: |-
+        {
+          "original-request": {
+            "url": "/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==",
+            "date": "Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)"
+          },
+          "email-address": "support@weave.works"
+        }
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1beta1","kind":"ClusterRoleBinding","metadata":{"annotations":{"cloud.weave.works/launcher-info":"{\n  \"original-request\": {\n    \"url\": \"/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==\",\n    \"date\": \"Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)\"\n  },\n  \"email-address\": \"support@weave.works\"\n}"},"labels":{"name":"weave-net"},"name":"weave-net"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"weave-net"},"subjects":[{"kind":"ServiceAccount","name":"weave-net","namespace":"kube-system"}]}
+    creationTimestamp: "2018-12-19T07:18:28Z"
+    labels:
+      name: weave-net
+    name: weave-net
+    resourceVersion: "409"
+    selfLink: /apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/weave-net
+    uid: 4813d329-035e-11e9-b555-5254003ceebc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: weave-net
+  subjects:
+  - kind: ServiceAccount
+    name: weave-net
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1beta1
+  kind: Role
+  metadata:
+    annotations:
+      cloud.weave.works/launcher-info: |-
+        {
+          "original-request": {
+            "url": "/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==",
+            "date": "Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)"
+          },
+          "email-address": "support@weave.works"
+        }
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1beta1","kind":"Role","metadata":{"annotations":{"cloud.weave.works/launcher-info":"{\n  \"original-request\": {\n    \"url\": \"/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==\",\n    \"date\": \"Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)\"\n  },\n  \"email-address\": \"support@weave.works\"\n}"},"labels":{"name":"weave-net"},"name":"weave-net","namespace":"kube-system"},"rules":[{"apiGroups":[""],"resourceNames":["weave-net"],"resources":["configmaps"],"verbs":["get","update"]},{"apiGroups":[""],"resources":["configmaps"],"verbs":["create"]}]}
+    creationTimestamp: "2018-12-19T07:18:28Z"
+    labels:
+      name: weave-net
+    name: weave-net
+    namespace: kube-system
+    resourceVersion: "411"
+    selfLink: /apis/rbac.authorization.k8s.io/v1beta1/namespaces/kube-system/roles/weave-net
+    uid: 4816955b-035e-11e9-b555-5254003ceebc
+  rules:
+  - apiGroups:
+    - ""
+    resourceNames:
+    - weave-net
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - update
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1beta1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      cloud.weave.works/launcher-info: |-
+        {
+          "original-request": {
+            "url": "/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==",
+            "date": "Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)"
+          },
+          "email-address": "support@weave.works"
+        }
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1beta1","kind":"RoleBinding","metadata":{"annotations":{"cloud.weave.works/launcher-info":"{\n  \"original-request\": {\n    \"url\": \"/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==\",\n    \"date\": \"Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)\"\n  },\n  \"email-address\": \"support@weave.works\"\n}"},"labels":{"name":"weave-net"},"name":"weave-net","namespace":"kube-system"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"Role","name":"weave-net"},"subjects":[{"kind":"ServiceAccount","name":"weave-net","namespace":"kube-system"}]}
+    creationTimestamp: "2018-12-19T07:18:28Z"
+    labels:
+      name: weave-net
+    name: weave-net
+    namespace: kube-system
+    resourceVersion: "412"
+    selfLink: /apis/rbac.authorization.k8s.io/v1beta1/namespaces/kube-system/rolebindings/weave-net
+    uid: 4818d88c-035e-11e9-b555-5254003ceebc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: weave-net
+  subjects:
+  - kind: ServiceAccount
+    name: weave-net
+    namespace: kube-system
+- apiVersion: extensions/v1beta1
+  kind: DaemonSet
+  metadata:
+    annotations:
+      cloud.weave.works/launcher-info: |-
+        {
+          "original-request": {
+            "url": "/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==",
+            "date": "Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)"
+          },
+          "email-address": "support@weave.works"
+        }
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"extensions/v1beta1","kind":"DaemonSet","metadata":{"annotations":{"cloud.weave.works/launcher-info":"{\n  \"original-request\": {\n    \"url\": \"/k8s/v1.10/net.yaml?k8s-version=Q2xpZW50IFZlcnNpb246IHZlcnNpb24uSW5mb3tNYWpvcjoiMSIsIE1pbm9yOiIxMyIsIEdpdFZlcnNpb246InYxLjEzLjEiLCBHaXRDb21taXQ6ImVlYzU1YjliYTk4NjA5YTQ2ZmVlNzEyMzU5YzdiNWIzNjViZGQ5MjAiLCBHaXRUcmVlU3RhdGU6ImNsZWFuIiwgQnVpbGREYXRlOiIyMDE4LTEyLTEzVDEwOjM5OjA0WiIsIEdvVmVyc2lvbjoiZ28xLjExLjIiLCBDb21waWxlcjoiZ2MiLCBQbGF0Zm9ybToibGludXgvYW1kNjQifQpTZXJ2ZXIgVmVyc2lvbjogdmVyc2lvbi5JbmZve01ham9yOiIxIiwgTWlub3I6IjEzIiwgR2l0VmVyc2lvbjoidjEuMTMuMCIsIEdpdENvbW1pdDoiZGRmNDdhYzEzYzFhOTQ4M2VhMDM1YTc5Y2Q3YzEwMDA1ZmYyMWE2ZCIsIEdpdFRyZWVTdGF0ZToiY2xlYW4iLCBCdWlsZERhdGU6IjIwMTgtMTItMDNUMjA6NTY6MTJaIiwgR29WZXJzaW9uOiJnbzEuMTEuMiIsIENvbXBpbGVyOiJnYyIsIFBsYXRmb3JtOiJsaW51eC9hbWQ2NCJ9Cg==\",\n    \"date\": \"Wed Dec 19 2018 07:18:24 GMT+0000 (UTC)\"\n  },\n  \"email-address\": \"support@weave.works\"\n}"},"labels":{"name":"weave-net"},"name":"weave-net","namespace":"kube-system"},"spec":{"minReadySeconds":5,"template":{"metadata":{"labels":{"name":"weave-net"}},"spec":{"containers":[{"command":["/home/weave/launch.sh"],"env":[{"name":"HOSTNAME","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"spec.nodeName"}}}],"image":"docker.io/weaveworks/weave-kube:2.5.0","name":"weave","readinessProbe":{"httpGet":{"host":"127.0.0.1","path":"/status","port":6784}},"resources":{"requests":{"cpu":"10m"}},"securityContext":{"privileged":true},"volumeMounts":[{"mountPath":"/weavedb","name":"weavedb"},{"mountPath":"/host/opt","name":"cni-bin"},{"mountPath":"/host/home","name":"cni-bin2"},{"mountPath":"/host/etc","name":"cni-conf"},{"mountPath":"/host/var/lib/dbus","name":"dbus"},{"mountPath":"/lib/modules","name":"lib-modules"},{"mountPath":"/run/xtables.lock","name":"xtables-lock"}]},{"env":[{"name":"HOSTNAME","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"spec.nodeName"}}}],"image":"docker.io/weaveworks/weave-npc:2.5.0","name":"weave-npc","resources":{"requests":{"cpu":"10m"}},"securityContext":{"privileged":true},"volumeMounts":[{"mountPath":"/run/xtables.lock","name":"xtables-lock"}]}],"hostNetwork":true,"hostPID":true,"restartPolicy":"Always","securityContext":{"seLinuxOptions":{}},"serviceAccountName":"weave-net","tolerations":[{"effect":"NoSchedule","operator":"Exists"}],"volumes":[{"hostPath":{"path":"/var/lib/weave"},"name":"weavedb"},{"hostPath":{"path":"/opt"},"name":"cni-bin"},{"hostPath":{"path":"/home"},"name":"cni-bin2"},{"hostPath":{"path":"/etc"},"name":"cni-conf"},{"hostPath":{"path":"/var/lib/dbus"},"name":"dbus"},{"hostPath":{"path":"/lib/modules"},"name":"lib-modules"},{"hostPath":{"path":"/run/xtables.lock","type":"FileOrCreate"},"name":"xtables-lock"}]}},"updateStrategy":{"type":"RollingUpdate"}}}
+    creationTimestamp: "2018-12-19T07:18:28Z"
+    generation: 1
+    labels:
+      name: weave-net
+    name: weave-net
+    namespace: kube-system
+    resourceVersion: "484"
+    selfLink: /apis/extensions/v1beta1/namespaces/kube-system/daemonsets/weave-net
+    uid: 481d4e01-035e-11e9-b555-5254003ceebc
+  spec:
+    minReadySeconds: 5
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        name: weave-net
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          name: weave-net
+      spec:
+        containers:
+        - command:
+          - /home/weave/launch.sh
+          env:
+          - name: HOSTNAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          image: docker.io/weaveworks/weave-kube:2.5.0
+          imagePullPolicy: IfNotPresent
+          name: weave
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              host: 127.0.0.1
+              path: /status
+              port: 6784
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            requests:
+              cpu: 10m
+          securityContext:
+            privileged: true
+            procMount: Default
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /weavedb
+            name: weavedb
+          - mountPath: /host/opt
+            name: cni-bin
+          - mountPath: /host/home
+            name: cni-bin2
+          - mountPath: /host/etc
+            name: cni-conf
+          - mountPath: /host/var/lib/dbus
+            name: dbus
+          - mountPath: /lib/modules
+            name: lib-modules
+          - mountPath: /run/xtables.lock
+            name: xtables-lock
+        - env:
+          - name: HOSTNAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          image: docker.io/weaveworks/weave-npc:2.5.0
+          imagePullPolicy: IfNotPresent
+          name: weave-npc
+          resources:
+            requests:
+              cpu: 10m
+          securityContext:
+            privileged: true
+            procMount: Default
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /run/xtables.lock
+            name: xtables-lock
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        hostPID: true
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext:
+          seLinuxOptions: {}
+        serviceAccount: weave-net
+        serviceAccountName: weave-net
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        volumes:
+        - hostPath:
+            path: /var/lib/weave
+            type: ""
+          name: weavedb
+        - hostPath:
+            path: /opt
+            type: ""
+          name: cni-bin
+        - hostPath:
+            path: /home
+            type: ""
+          name: cni-bin2
+        - hostPath:
+            path: /etc
+            type: ""
+          name: cni-conf
+        - hostPath:
+            path: /var/lib/dbus
+            type: ""
+          name: dbus
+        - hostPath:
+            path: /lib/modules
+            type: ""
+          name: lib-modules
+        - hostPath:
+            path: /run/xtables.lock
+            type: FileOrCreate
+          name: xtables-lock
+    templateGeneration: 1
+    updateStrategy:
+      rollingUpdate:
+        maxUnavailable: 1
+      type: RollingUpdate
+  status:
+    currentNumberScheduled: 1
+    desiredNumberScheduled: 1
+    numberAvailable: 1
+    numberMisscheduled: 0
+    numberReady: 1
+    observedGeneration: 1
+    updatedNumberScheduled: 1
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
