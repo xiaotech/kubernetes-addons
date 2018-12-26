@@ -1,0 +1,35 @@
+global:
+  resolve_timeout: 5m
+  smtp_smarthost: 'smtp.163.com:25'
+  smtp_from: 'xxxx@163.com'
+  smtp_auth_username: 'xxxx@163.com'
+  smtp_auth_password: '****'
+  smtp_require_tls: false
+
+templates:
+- '/etc/prometheus/template/*.tmpl'
+
+route:
+  receiver: email1
+  group_wait: 1s
+  routes:
+  - receiver: email2
+    group_wait: 1s
+    match_re:
+      severity: e2
+
+receivers:
+- name: 'email1'
+  email_configs:
+  - to: 'xxxx@xx.com'
+    headers:
+      From: xxxx@163.com
+      To: xxxxx@xx.com
+    html: '{{ template "alert.html" . }}'
+
+- name: 'email2'
+  email_configs:
+  - to: 'xxxx@xx.com'
+    headers:
+      From: xxxx@163.com
+      To: xxxxx@xx.com

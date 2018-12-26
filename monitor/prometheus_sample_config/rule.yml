@@ -1,0 +1,13 @@
+groups:
+- name: test-rule
+  rules:
+  - alert: "内存报警"
+    expr: 100 - ((node_memory_MemAvailable * 100) / node_memory_MemTotal) > 10
+    for: 1s
+    labels:
+      severity: e2
+      alertname: "内存报警"
+    annotations:
+      summary: "服务名:{{$labels.alertname}}"
+      description: "业务500报警: {{ $value }}"
+      value: "{{ $value }}"
