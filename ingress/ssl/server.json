@@ -1,0 +1,23 @@
+{
+    "CN": "testing环境",
+    "hosts": [
+        "wizlawgic.com",
+        "test.wizlawgic.com",
+        "test-81.wizlawgic.com",
+        "m.wizlawgic.com",
+        "172.30.81.186"
+    ],
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+        "C": "CN",
+        "ST": "Shanghai",
+        "L": "Shanghai",
+        "O": "k8s",
+        "OU": "System"
+        }
+    ]
+}

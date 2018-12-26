@@ -1,0 +1,15 @@
+{
+    "CN": "上海唯识律简",
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "CN",
+            "L": "Shanghai",
+            "ST": "Shanghai"
+        }
+    ]
+}
+
