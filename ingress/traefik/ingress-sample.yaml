@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-test
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: www.nginx.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginx
+          servicePort: 80
