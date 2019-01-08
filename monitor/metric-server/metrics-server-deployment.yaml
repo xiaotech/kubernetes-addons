@@ -30,7 +30,7 @@ spec:
       containers:
       - name: metrics-server
        # image: k8s.gcr.io/metrics-server-amd64:v0.3.1
-        image: docker.io/aneirin/metrics-server-amd64:v0.3.0
+        image: docker.io/xiaotech/metrics-server-amd64:v0.3.0
         imagePullPolicy: IfNotPresent
         command:
         - /metrics-server

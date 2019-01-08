@@ -157,7 +157,7 @@ spec:
       - args:
         - --secure-listen-address=:8443
         - --upstream=http://127.0.0.1:8081/
-        image: quay.io/coreos/kube-rbac-proxy:v0.3.1
+        image: docker.io/xiaotech/kube-rbac-proxy:v0.3.1
         imagePullPolicy: IfNotPresent
         name: kube-rbac-proxy-main
         ports:
@@ -173,7 +173,7 @@ spec:
       - args:
         - --secure-listen-address=:9443
         - --upstream=http://127.0.0.1:8082/
-        image: quay.io/coreos/kube-rbac-proxy:v0.3.1
+        image: docker.io/xiaotech/kube-rbac-proxy:v0.3.1
         name: kube-rbac-proxy-self
         imagePullPolicy: IfNotPresent
         ports:
@@ -191,7 +191,7 @@ spec:
         - --port=8081
         - --telemetry-host=127.0.0.1
         - --telemetry-port=8082
-        image: quay.io/coreos/kube-state-metrics:v1.3.1
+        image: docker.io/xiaotech/kube-state-metrics:v1.3.1
         imagePullPolicy: IfNotPresent
         name: kube-state-metrics
         resources:
@@ -221,7 +221,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: quay.io/coreos/addon-resizer:1.0
+        image: docker.io/xiaotech/addon-resizer:1.0
         imagePullPolicy: IfNotPresent
         name: addon-resizer
         resources:

@@ -106,9 +106,9 @@ spec:
       containers:
       - args:
         - --kubelet-service=kube-system/kubelet
-        - --config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1
-        - --prometheus-config-reloader=quay.io/coreos/prometheus-config-reloader:v0.22.2
-        image: quay.io/coreos/prometheus-operator:v0.22.2
+        - --config-reloader-image=docker.io/xiaotech/configmap-reload:v0.0.1
+        - --prometheus-config-reloader=docker.io/xiaotech/prometheus-config-reloader:v0.22.2
+        image: docker.io/xiaotech/prometheus-operator:v0.22.2
         imagePullPolicy: IfNotPresent
         name: prometheus-operator
         ports:
