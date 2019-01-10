@@ -1,5 +1,5 @@
 kubefed init federation \
-   --host-cluster-context=kubernetes-admin-192@kubernetes \
+   --host-cluster-context=context192 \
    --dns-provider="coredns" \
    --dns-zone-name="xiaotech.com." \
    --apiserver-enable-basic-auth=true \
