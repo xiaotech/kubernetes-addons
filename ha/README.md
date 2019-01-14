@@ -35,7 +35,13 @@ apiServerCertSANs:
 
 `kubeadm init --config kubeadm.conf `
 
-4. 拷贝证书文件到其余两个节点
+4. 安装网络
+calico, flannel, weave
+
+5. 拷贝证书文件到其余两个节点
+
+- 先做ssh密钥
+- 创建/etc/kubernetes/pki/etcd
 
 ```
 USER=root # customizable
@@ -53,7 +59,7 @@ for host in ${CONTROL_PLANE_IPS}; do
 done
 ```
 
-5. 其他主节点的安装
+6. 其他主节点的安装
 
 `kubeadm join 172.30.81.199:6443 --token abcdef.0123456789abcdef  --discovery-token-unsafe-skip-ca-verification --experimental-control-plane
 `
