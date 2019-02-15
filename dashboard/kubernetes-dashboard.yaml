@@ -109,7 +109,7 @@ spec:
     spec:
       containers:
       - name: kubernetes-dashboard
-        image: docker.io/siriuszg/kubernetes-dashboard-amd64
+        image: docker.io/xiaotech/kubernetes-dashboard-amd64:latest
         ports:
         - containerPort: 8443
           protocol: TCP
@@ -158,5 +158,6 @@ spec:
   ports:
     - port: 443
       targetPort: 8443
+  type: NodePort
   selector:
     k8s-app: kubernetes-dashboard
