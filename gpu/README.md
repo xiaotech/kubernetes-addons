@@ -38,6 +38,8 @@ systemctl restart kubelet
         }
     }
 }
+
+systemctl restart docker
 ```
 
 5. master节点启用kubernetes支持device plugin
@@ -57,6 +59,8 @@ root@node192:/home/nvidia# kubectl describe nodes |grep -i gpu
 6. pod使用gpu资源
 
 ```
+kubectl create -f sample.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
