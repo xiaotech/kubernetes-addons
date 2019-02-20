@@ -75,3 +75,5 @@ spec:
         limits:
           nvidia.com/gpu: 1 # 会调度到有gpu资源的节点
 ```
+
+> nvidia-docker ： 会将nvidia显卡相关的设备以及驱动添加到容器中，容器中无需再安装驱动，只需要安装上层工具包
