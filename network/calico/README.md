@@ -14,7 +14,7 @@
 ```
  # Enable IPIP
 - name: CALICO_IPV4POOL_IPIP
-value: "Always"
+  value: "Always"
 ```
 
 
@@ -25,7 +25,7 @@ value: "Always"
 ```
  # Enable IPIP
 - name: CALICO_IPV4POOL_IPIP
-value: "off"
+  value: "off"
 ```
 
 # 如果calico报错， unknown peer address 
