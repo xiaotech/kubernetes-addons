@@ -1,0 +1,6 @@
+apiVersion: xiaotech.com/v1
+kind: MyCrd
+metadata:
+  name: mycrd
+spec:
+  loglevel: info
