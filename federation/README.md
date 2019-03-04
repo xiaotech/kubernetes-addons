@@ -18,6 +18,14 @@ CURRENT   NAME         CLUSTER   AUTHINFO               NAMESPACE
           context193   c193      kubernetes-admin-193   
 
 
-> 集群初始化和加入 参考 https://github.com/xiaotech/federation
+** 注意信息
+ 
+1. kubectl : v1.10.0-00，高版本的可能导致集群某些功能无法使用
 
-** kubectl : v1.10.0-00
+2. 集群的名字不要包含一些特殊字符如@，否则导致join失败
+
+3. federation： cluster集群的名字使用federation，否则导致unjoin失败
+
+4. 清除联邦： delete ns federation-system
+
+5. 联邦集群： 有apiserver和controller-manager，etcd可以使用k8s集群的
