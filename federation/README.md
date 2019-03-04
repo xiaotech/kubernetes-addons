@@ -17,4 +17,7 @@ CURRENT   NAME         CLUSTER   AUTHINFO               NAMESPACE
 *         context192   c192      kubernetes-admin-192   
           context193   c193      kubernetes-admin-193   
 
+
+> 集群初始化和加入 参考 https://github.com/xiaotech/federation
+
 ** kubectl : v1.10.0-00
