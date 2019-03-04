@@ -1,4 +1,4 @@
-#kubefed 
+# kubefed 
 
 **kubefed client 下载**
 
@@ -18,7 +18,7 @@ CURRENT   NAME         CLUSTER   AUTHINFO               NAMESPACE
           context193   c193      kubernetes-admin-193   
 
 
-** 注意信息
+**注意信息**
  
 1. kubectl : v1.10.0-00，高版本的可能导致集群某些功能无法使用
 
