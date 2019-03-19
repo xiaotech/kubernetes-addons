@@ -442,6 +442,8 @@ spec:
               subPath: prometheus.yml
             - mountPath: /etc/prometheus/rules
               name: prometheus-rules-volume
+            - mountPath: /etc/localtime
+              name: time-conf
           ports:
             - containerPort: 9090
               protocol: TCP
@@ -455,6 +457,9 @@ spec:
         - name: prometheus-rules-volume
           configMap:
             name: prometheus-rules
+        - name: time-conf
+          hostPath:
+            path: /etc/localtime
       tolerations:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
