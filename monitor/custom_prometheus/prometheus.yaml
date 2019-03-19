@@ -386,9 +386,9 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Retain
   nfs:
-    path: /data/
+    path: /data/prometheus
     server: 172.30.81.192
 
 ---
