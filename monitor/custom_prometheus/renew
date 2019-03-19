@@ -1,0 +1,6 @@
+#!/bin/bash
+
+kubectl -n ns-monitor delete cm prometheus-rules 
+kubectl -n ns-monitor create cm prometheus-rules  --from-file=./rules.yml 
+kubectl -n ns-monitor delete pod -l app=prometheus
+

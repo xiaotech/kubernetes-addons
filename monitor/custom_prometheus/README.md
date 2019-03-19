@@ -105,3 +105,7 @@ templates:
     {{ end }} 
     {{ end }}
 ```
+
+* 修改 nfs地址
+* 修改target
+* 修改rule

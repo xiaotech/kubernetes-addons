@@ -369,6 +369,10 @@ data:
       - job_name: "worker node"
         static_configs:
           - targets: ["172.30.81.192:9100","172.30.81.193:9100","172.30.81.194:9100"]
+      - job_name: "business api"
+        metrics_path: /
+        static_configs:
+          - targets: ["172.30.81.193:80"]
 ---
 apiVersion: v1
 kind: PersistentVolume
