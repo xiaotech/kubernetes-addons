@@ -1,0 +1,10 @@
+{{ define "wechat.default.message" }} {{ range .Alerts }}
+========start========== 
+告警程序：alertmanager 
+告警级别：{{ .Labels.severity }} 
+告警类型：{{ .Labels.alertname }} 
+告警详情: {{ .Annotations.description }} 
+触发时间: {{ .StartsAt.Format "2006-01-02 15:04:05" }} 
+========end========== 
+{{ end }} 
+{{ end }}

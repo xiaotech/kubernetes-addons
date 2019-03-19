@@ -1,0 +1,101 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alertmanager-conf
+  namespace: ns-monitor
+data:
+  alertmanager.yml: |
+    global:
+      resolve_timeout: 5m
+
+    templates:
+    - /etc/alertmanager/template/wechat.tmpl
+
+    route:
+      group_by: ['alertname']
+      receiver: 'wechat'
+
+    receivers:
+    - name: 'wechat'
+      wechat_configs:
+      - corp_id: 'ww9dfb5b4aada9b647'
+        to_party: '2'
+        agent_id: '1000004'
+        api_secret: 'jGWgxWDkFOnIWT4eA1sGtdy2uVSNCkNzOqj-YAYsOvU'
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wechat.template
+  namespace: ns-monitor
+data:
+  wechat.tmpl: |
+    {{ define "wechat.default.message" }} {{ range .Alerts }}
+    ========告警========== 
+    告警级别：{{ .Labels.severity }} 
+    告警类型：{{ .Labels.alertname }} 
+    告警详情: {{ .Annotations.description }} 
+    触发时间: {{ .StartsAt.Format "2006-01-02 15:04:05" }} 
+    ===================== 
+    {{ end }} 
+    {{ end }}
+---
+kind: Deployment
+apiVersion: apps/v1beta2
+metadata:
+  labels:
+    app: alertmanager
+  name: alertmanager
+  namespace: ns-monitor
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: alertmanager
+  template:
+    metadata:
+      labels:
+        app: alertmanager
+    spec:
+      serviceAccountName: prometheus
+      containers:
+        - name: alertmanager
+          image: prom/alertmanager:latest
+          volumeMounts:
+            - mountPath: /etc/alertmanager/
+              name: alertmanager-conf
+            - mountPath: /etc/alertmanager/template/
+              name: wechat-conf
+          ports:
+            - containerPort: 9093
+              protocol: TCP
+      volumes:
+        - name: alertmanager-conf
+          configMap:
+            name: alertmanager-conf
+        - name: wechat-conf
+          configMap:
+            name: wechat.template
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    prometheus.io/scrape: 'true'
+  labels:
+    app: alertmanager
+  name: alertmanager-service
+  namespace: ns-monitor
+spec:
+  ports:
+    - port: 9093
+      targetPort: 9093
+  selector:
+    app: alertmanager
+  type: NodePort
