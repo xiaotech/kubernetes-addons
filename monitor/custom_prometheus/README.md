@@ -109,3 +109,14 @@ templates:
 * 修改 nfs地址
 * 修改target
 * 修改rule
+
+
+## 2. alertmanager 告警
+
+* 分组： 同组的告警只发送一条，根据alertname
+
+* 抑制:  有A引发的B，C告警，只发送A
+
+* 沉默： 根据规则过滤告警，不发送
+
+> 变量参考 https://prometheus.io/docs/alerting/notifications/#alert
