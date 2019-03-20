@@ -120,3 +120,5 @@ templates:
 * 沉默： 根据规则过滤告警，不发送
 
 > 变量参考 https://prometheus.io/docs/alerting/notifications/#alert
+
+> prometheus文档参考 https://yunlzheng.gitbook.io/prometheus-book/
