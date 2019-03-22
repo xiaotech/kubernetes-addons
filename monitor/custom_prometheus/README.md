@@ -113,12 +113,102 @@ templates:
 
 ## 2. alertmanager 告警
 
-* 分组： 同组的告警只发送一条，根据alertname
+* 分组： 同组的告警只发送一条，根据alertname, group_by
 
-* 抑制:  有A引发的B，C告警，只发送A
+* 抑制:  有A引发的B，C告警，只发送A, inhibit{source_match相当于A;target_match相当于B，C;equal匹配的label}
 
 * 沉默： 根据规则过滤告警，不发送
 
 > 变量参考 https://prometheus.io/docs/alerting/notifications/#alert
 
 > prometheus文档参考 https://yunlzheng.gitbook.io/prometheus-book/
+
+
+## 3. prometheus服务发现
+
+* 基于文件的发现
+
+```
+scrape_configs:
+- job_name: 'file_ds'
+  file_sd_configs:
+  - files:
+    - targets.json
+
+
+[
+  {
+    "targets": [ "localhost:8080"],
+    "labels": {
+      "env": "localhost",
+      "job": "cadvisor"
+    }
+  },
+  {
+    "targets": [ "localhost:9104" ],
+    "labels": {
+      "env": "prod",
+      "job": "mysqld"
+    }
+  },
+  {
+    "targets": [ "localhost:9100"],
+    "labels": {
+      "env": "prod",
+      "job": "node"
+    }
+  }
+]
+
+```
+
+* 基于consul的服务发现
+
+```
+- job_name: node_exporter
+    metrics_path: /metrics
+    scheme: http
+    consul_sd_configs:
+      - server: localhost:8500
+        services:
+          - node_exporter
+```
+
+* 基于sd的服务发现,如kubernetes_sd_configs
+
+* relabel_configs: 修改label，过滤
+
+*replace*
+
+```
+  relabel_configs:
+  - source_labels: ["__meta_consul_dc"]
+    target_label: "datacenter"
+    replacement: "this is test{$1}"
+    action: replace
+```
+
+*labelmap,会将匹配到的数据，名称和value作为新的label，名称为()中的匹配*
+
+```
+  relabel_configs:
+  - action: labelmap
+    regex: __meta_consul_(.+)
+```
+
+*过滤*
+
+```
+    relabel_configs:
+    - source_labels:  ["__meta_consul_dc"]
+      regex: "dc1"
+      action: keep   #drop
+```
+
+
+## 4. 高可用
+
+
+* prometheus: federation扩展
+
+* alertmanager: gossip协议集群交互
