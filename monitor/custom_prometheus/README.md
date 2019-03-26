@@ -208,7 +208,54 @@ scrape_configs:
 
 ## 4. 高可用
 
+* prometheus 本地存储
+
+* prometheus 远程存储
 
 * prometheus: federation扩展
 
+```
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+
+
+scrape_configs:
+- job_name: 'federate'
+  metrics_path: '/federate'
+  params:
+    'match[]':
+      - '{job=~ ".+"}'
+  static_configs:
+  - targets: 
+    - "172.30.81.186:32665"
+```
+
+* prometheus HA
+
+- ha + 本地存储: 无法解决数据一致性问题
+
+- ha + 远程存储： 可以很好解决数据一致性问题
+ 
+- ha + 远程存储 + federation: 联邦机制加入可以解决数据采集的性能问题
+
 * alertmanager: gossip协议集群交互
+
+alertmanager 
+
+多个prometheus推送相同的报警信息给alertmanager，分组机制 只会发送一个，
+
+但是alertmanager存在单点问题,部署多个需要信息同步
+
+gossip协议用于分布式节点信息交换和同步，类似与病毒传播
+
+主要有pull和push模式，如发送通知后会push消息，启动阶段会pull 状态
+
+集群创建启动时添加下面参数
+```
+    --cluster.listen-address string: 当前实例集群服务监听地址
+
+    --cluster.peer value: 初始化时关联的其它实例的集群服务地址
+
+```
