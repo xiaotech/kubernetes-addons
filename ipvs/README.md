@@ -23,4 +23,4 @@ kubectl -n kube-system delete pod -l k8s-app=kube-proxy
 
 2. 修改完成后，可以使用ipvsadm查看
 
-
+3. k8s的ipvs基于nat构建，但是ipvs nat要求rs的默认网关指向LB，这个显然无法满足，所有k8s的ipvs还做了masquerade(cip->nip,nip->rs-ip,rs-ip->nip,nip->cip)
